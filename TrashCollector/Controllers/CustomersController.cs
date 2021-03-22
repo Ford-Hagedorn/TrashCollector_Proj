@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,19 @@ using TrashCollector.Data;
 
 namespace TrashCollector.Controllers
 {
-    public class Customers : Controller
+    [Authorize(Roles = "Customer")]
+    public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
+
+        public CustomersController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: Customers
         public ActionResult Index()
         {
+         
             return View();
         }
 
