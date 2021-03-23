@@ -10,23 +10,22 @@ using TrashCollector.Models;
 
 namespace TrashCollector.Controllers
 {
-    public class CustomersController : Controller
+    public class RolesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CustomersController(ApplicationDbContext context)
+        public RolesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Customers
+        // GET: Roles
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Customer.Include(c => c.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await _context.Roles.ToListAsync());
         }
 
-        // GET: Customers/Details/5
+        // GET: Roles/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +33,39 @@ namespace TrashCollector.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customer
-                .Include(c => c.IdentityUser)
+            var roles = await _context.Roles
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (customer == null)
+            if (roles == null)
             {
                 return NotFound();
             }
 
-            return View(customer);
+            return View(roles);
         }
 
-        // GET: Customers/Create
+        // GET: Roles/Create
         public IActionResult Create()
         {
-            ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Roles/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,IdentityUserId")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,Customer,Employee")] Roles roles)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customer);
+                _context.Add(roles);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", customer.IdentityUserId);
-            return View(customer);
+            return View(roles);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Roles/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +73,22 @@ namespace TrashCollector.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customer.FindAsync(id);
-            if (customer == null)
+            var roles = await _context.Roles.FindAsync(id);
+            if (roles == null)
             {
                 return NotFound();
             }
-            ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", customer.IdentityUserId);
-            return View(customer);
+            return View(roles);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Roles/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IdentityUserId")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Customer,Employee")] Roles roles)
         {
-            if (id != customer.Id)
+            if (id != roles.Id)
             {
                 return NotFound();
             }
@@ -102,12 +97,12 @@ namespace TrashCollector.Controllers
             {
                 try
                 {
-                    _context.Update(customer);
+                    _context.Update(roles);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomerExists(customer.Id))
+                    if (!RolesExists(roles.Id))
                     {
                         return NotFound();
                     }
@@ -118,11 +113,10 @@ namespace TrashCollector.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", customer.IdentityUserId);
-            return View(customer);
+            return View(roles);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Roles/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,31 +124,30 @@ namespace TrashCollector.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customer
-                .Include(c => c.IdentityUser)
+            var roles = await _context.Roles
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (customer == null)
+            if (roles == null)
             {
                 return NotFound();
             }
 
-            return View(customer);
+            return View(roles);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var customer = await _context.Customer.FindAsync(id);
-            _context.Customer.Remove(customer);
+            var roles = await _context.Roles.FindAsync(id);
+            _context.Roles.Remove(roles);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CustomerExists(int id)
+        private bool RolesExists(int id)
         {
-            return _context.Customer.Any(e => e.Id == id);
+            return _context.Roles.Any(e => e.Id == id);
         }
     }
 }

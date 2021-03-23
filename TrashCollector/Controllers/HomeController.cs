@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using TrashCollector.ActionFilters;
 using TrashCollector.Models;
 
 namespace TrashCollector.Controllers
 {
+    [ServiceFilter(typeof(GlobalRouting))]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
