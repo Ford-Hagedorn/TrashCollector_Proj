@@ -14,6 +14,7 @@ namespace TrashCollector.Controllers
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
+        
 
         public CustomersController(ApplicationDbContext context)
         {
@@ -36,8 +37,6 @@ namespace TrashCollector.Controllers
         public ActionResult Create()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            customer.IdentityUserId = userId;
-            _context.Add(customer);
             _context.SaveChanges();
 
             return View();
