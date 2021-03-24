@@ -22,12 +22,18 @@ namespace TrashCollector.Data
                 .HasData(
                 new IdentityRole
                 {
-                    Name = "Admin",
-                    NormalizedName = "ADMIN"
-                }
+                    Name = "Employee",
+                    NormalizedName = "EMPLOYEE"
+                },
+                   new IdentityRole
+                   {
+                       Name = "Customer",
+                       NormalizedName = "CUSTOMER"
+                   }
                 );
         }
-        public DbSet<TrashCollector.Models.Roles> Roles { get; set; }
-        public DbSet<TrashCollector.Models.Customer> Customer { get; set; }
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Employee> Employee { get; set; }
     }
 }
