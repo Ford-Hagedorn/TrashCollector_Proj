@@ -48,15 +48,15 @@ namespace TrashCollector.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4966869e-0605-45e6-8871-eec007e41b2d",
-                            ConcurrencyStamp = "4a3b38cc-52bb-478c-9d99-0f9afa7d2bce",
+                            Id = "b16ff46c-9982-43ab-92db-2313bef6c6d2",
+                            ConcurrencyStamp = "858aff1d-fc42-4dac-a395-5dc6544e67e7",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "935f0b7a-6e58-4abf-a42d-09e89fc3b2a0",
-                            ConcurrencyStamp = "38d4669b-0b7b-49d9-ad9b-6dbbd75c7023",
+                            Id = "c0c73abe-e3d6-4c2a-9335-e2d32537a3dd",
+                            ConcurrencyStamp = "dce23266-2b96-42d3-aff9-9713d558d9f8",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -238,10 +238,19 @@ namespace TrashCollector.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
