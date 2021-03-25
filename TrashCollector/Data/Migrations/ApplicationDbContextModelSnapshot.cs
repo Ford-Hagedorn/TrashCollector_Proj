@@ -48,15 +48,15 @@ namespace TrashCollector.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0ce8fc77-e842-4f8d-bcba-802502e9072e",
-                            ConcurrencyStamp = "abfcb9b9-fe3c-4db8-bee9-a28750183602",
+                            Id = "2e97ab7b-bc2f-4f6e-b7bb-cd121ba0979b",
+                            ConcurrencyStamp = "7feb84d2-4f7d-460b-b924-3c7d98aea815",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "5e4932f3-7293-4cd1-9b8f-7fa81216cf83",
-                            ConcurrencyStamp = "69085558-df55-4648-99a5-06fffc0ed7eb",
+                            Id = "b78f9f0f-835e-4b4a-bcfc-2b12dc62e6a7",
+                            ConcurrencyStamp = "7a63a113-d3b1-40e6-845b-494ede907855",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -244,20 +244,23 @@ namespace TrashCollector.Data.Migrations
                     b.Property<int>("BalanceDue")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Calendar")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DayOfTheWeek")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
@@ -279,11 +282,26 @@ namespace TrashCollector.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AddBalance")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GetCustomer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GetDayOfTheWeek")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

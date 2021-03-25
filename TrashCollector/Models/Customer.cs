@@ -18,7 +18,8 @@ namespace TrashCollector.Models
             public string State { get; set; }
             public string ZipCode { get; set; }
             public string DayOfTheWeek { get; set; }
-            public DateTime Calendar { get; set; }
+            public DateTime StartDate { get; set; }
+            public DateTime EndDate { get; set; }
             public int BalanceDue { get; set; }
 
 

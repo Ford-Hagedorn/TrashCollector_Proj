@@ -57,7 +57,7 @@ namespace TrashCollector.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,IdentityUserId")] Employee employee)
+        public async Task<IActionResult> Create([Bind("Id,Name,GetCustomer,GetDayOfTheWeek,StartDate,EndDate,AddBalance,IdentityUserId")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace TrashCollector.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,IdentityUserId")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,GetCustomer,GetDayOfTheWeek,StartDate,EndDate,AddBalance,IdentityUserId")] Employee employee)
         {
             if (id != employee.Id)
             {

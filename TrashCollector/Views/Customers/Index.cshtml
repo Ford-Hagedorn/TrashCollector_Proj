@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Index";
-   
 }
 
 <h1>Index</h1>
@@ -32,7 +31,10 @@
                 @Html.DisplayNameFor(model => model.DayOfTheWeek)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Calendar)
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BalanceDue)
@@ -65,7 +67,10 @@
                 @Html.DisplayFor(modelItem => item.DayOfTheWeek)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Calendar)
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BalanceDue)

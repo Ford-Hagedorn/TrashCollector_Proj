@@ -18,6 +18,31 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="GetCustomer" class="control-label"></label>
+                <input asp-for="GetCustomer" class="form-control" />
+                <span asp-validation-for="GetCustomer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GetDayOfTheWeek" class="control-label"></label>
+                <input asp-for="GetDayOfTheWeek" class="form-control" />
+                <span asp-validation-for="GetDayOfTheWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddBalance" class="control-label"></label>
+                <input asp-for="AddBalance" class="form-control" />
+                <span asp-validation-for="AddBalance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="IdentityUserId" class="control-label"></label>
                 <select asp-for="IdentityUserId" class ="form-control" asp-items="ViewBag.IdentityUserId"></select>
             </div>

@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Delete";
-    
 }
 
 <h1>Delete</h1>
@@ -49,10 +48,16 @@
             @Html.DisplayFor(model => model.DayOfTheWeek)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Calendar)
+            @Html.DisplayNameFor(model => model.StartDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Calendar)
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.BalanceDue)
