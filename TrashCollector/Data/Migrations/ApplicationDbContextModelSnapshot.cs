@@ -48,15 +48,15 @@ namespace TrashCollector.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b16ff46c-9982-43ab-92db-2313bef6c6d2",
-                            ConcurrencyStamp = "858aff1d-fc42-4dac-a395-5dc6544e67e7",
+                            Id = "0ce8fc77-e842-4f8d-bcba-802502e9072e",
+                            ConcurrencyStamp = "abfcb9b9-fe3c-4db8-bee9-a28750183602",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "c0c73abe-e3d6-4c2a-9335-e2d32537a3dd",
-                            ConcurrencyStamp = "dce23266-2b96-42d3-aff9-9713d558d9f8",
+                            Id = "5e4932f3-7293-4cd1-9b8f-7fa81216cf83",
+                            ConcurrencyStamp = "69085558-df55-4648-99a5-06fffc0ed7eb",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -241,7 +241,16 @@ namespace TrashCollector.Data.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("BalanceDue")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Calendar")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DayOfTheWeek")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IdentityUserId")
@@ -251,6 +260,9 @@ namespace TrashCollector.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
